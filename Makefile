@@ -2,6 +2,7 @@ CFLAGS = -c -Og -Wall -Wextra -Wpedantic -fanalyzer -std=c99
 NAME = sed_simplified
 SRC = ./src/
 CC = gcc
+FILE = example.txt
 
 .PHONY: run clean all
 
@@ -15,7 +16,7 @@ lib2.o:
 	$(CC) $(CFLAGS) $(SRC)lib2.c
 
 run: all clean
-	./$(NAME)
+	./$(NAME) $(FILE)
 
 clean:
 	rm -f *.o
