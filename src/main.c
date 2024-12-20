@@ -1,19 +1,19 @@
 #include "lib2.h"
 
 int main(int argc, char *argv[]) {
+    if (argc > 3) {
+        fprintf(stderr, "too many args\n");
+        exit(1);
+    } 
 
-    char flag;
-    checkOperationInput(argv[1]);
-
-    FILE *file = fopen(argv[1], "a+");
-    
-    if (file == NULL) {
-        printf("File does not exist\n");
+    if (argc < 3) {
+        fprintf(stderr, "too few args\n");
         exit(1);
     }
 
-    fprintf(file, "hello, wrld!\n");
+    isFileExist(argv[1]);
 
-    fclose(file);
+    getCmd(argv);
+
     return 0;
 }
